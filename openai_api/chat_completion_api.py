@@ -4,11 +4,13 @@ from typing import List, Dict
 import openai
 from openai.openai_object import OpenAIObject
 
+from openai_api.config import OPENAI_API_KEY
+
 
 @dataclass
 class OpenAIChatCompletionAPIRequest:
     messages: List[Dict[str, str]]
-    api_key: str = "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"
+    api_key: str = OPENAI_API_KEY
     model: str = "gpt-3.5-turbo"
 
 
