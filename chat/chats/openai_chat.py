@@ -1,3 +1,5 @@
+from typing import Optional
+
 from chat import (
     IChat,
     ChatRecord,
@@ -15,20 +17,24 @@ class OpenAIChat(IChat):
             name: str,
             purpose: str,
             historic: bool = False,
+            history: Optional[ChatRecord] = None,
     ):
         """
         Initialize the OpenAI api facade.
         :param name: The name of the instance of ChatGPT.
         :param purpose: The initial message from "role": "system".
         :param historic: If true query with chat history.
+        :param history: Load an already existing chat record.
         """
         self.name = name
         self.purpose = purpose
         self.historic = historic
+        self.history = history
 
         self.chat_completion = OpenAIChatCompletionAPI()
-        if self.historic:
-            self.chat_record = self.create_base_record()
+        self.chat_record = self.create_base_record()
+        if self.history:
+            self.chat_record.extend(self.history)
 
     def query(self, prompt: str) -> ChatRecord:
         query_record = self.create_query_record(prompt)
