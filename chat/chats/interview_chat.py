@@ -1,5 +1,5 @@
 from chat import IChat, ChatRecord
-from chat.chats import OpenAIChat
+from chat.chats.openai_chat import OpenAIChat
 
 
 class InterviewChat(IChat):

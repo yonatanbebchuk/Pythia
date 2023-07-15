@@ -10,5 +10,5 @@ if __name__ == '__main__':
         ],
         index_path="index.json",
     )
-    response = vector_index_chat.query("What is my name and what do I do for a living and who was hitler?")
+    response = vector_index_chat.query("What is my name and what tips do you have for me to improve at my job?")
     itype(str(response), delay=0.01)

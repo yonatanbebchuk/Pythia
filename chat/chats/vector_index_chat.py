@@ -1,8 +1,7 @@
 from typing import List, Optional
 
 from langchain.chat_models import ChatOpenAI
-from llama_index import LLMPredictor, PromptHelper, ServiceContext, GPTSimpleVectorIndex, SimpleDirectoryReader, \
-    Document
+from llama_index import LLMPredictor, PromptHelper, ServiceContext, GPTSimpleVectorIndex, Document
 from llama_index.readers.base import BaseReader
 
 from chat import IChat, ChatRecord
